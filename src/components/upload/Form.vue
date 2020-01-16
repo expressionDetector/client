@@ -61,7 +61,7 @@ export default {
         data: fd
       })
         .then(({ data }) => {
-          console.log(data);
+          this.$emit("url", data);
         })
         .catch(err => {
           console.log(err);
