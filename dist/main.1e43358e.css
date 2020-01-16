@@ -12,6 +12,9 @@
 }
 @media (min-width: 1200px) {
 }
+.carousel-image[data-v-05d423] {
+  height: 100vh !important;
+}
 .middle[data-v-7b2174] {
   transition: 0.5s ease;
   position: absolute;
@@ -26,8 +29,8 @@
   z-index: 999;
 }
 .image[data-v-7b2174] {
-  height: 10vh;
-  width: 10vh;
+  height: 50vh;
+  width: 50vh;
 }
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)

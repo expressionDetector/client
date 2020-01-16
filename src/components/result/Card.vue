@@ -1,21 +1,19 @@
 <template>
-    <div>
-        <div class="container justify-content-center d-flex  mt-3">
-            <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-left class="mb-3" style="width: 80% !important">
-                <b-card-text>
-                    <b-badge variant="success">image detected</b-badge>
-                    <hr>
-                    <div class="row mb-1">
-                        <div class="col-sm-2">
-                            <label for="">Joy:</label>
-                            <!-- <span>Joy</span> -->
-                        </div>
-                        <div class="col-sm-10 pt-1">
-                            <b-progress :value="'15'" show-progress class="mb-3"></b-progress>
-                        </div>
+    <div class="row">
+        <div class="col-4">
+            <img :src="imageUrl" alt="..." class="img-thumbnail" height="400" style="height: 300px !important; width: 100%">
+        </div>
+        <div class="col-8 p-3 ">
+            <template v-for="(value, name) in results">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label>{{name}}:</label>
                     </div>
-                </b-card-text>
-            </b-card>
+                    <div class="col-sm-10 ">
+                        <b-progress :value="value" show-progress class="mb-3" style="height: 25px"></b-progress>
+                    </div>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -25,18 +23,9 @@
 export default {
     data(){
         return {
-            emotionals: {
-                Joy: null,
-                Sorrow: null,
-                Anger: null,
-                Surprise: null,
-                Exporesed: null,
-                Blurred: null,
-                Headwear: null
-            }
         }
     },
-    props: []
+    props: ['imageUrl', 'results']
 }
 </script>
 

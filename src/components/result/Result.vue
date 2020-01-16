@@ -1,8 +1,9 @@
 <template>
     <div>
-        <Card />
+        <div class="container mt-3">
+            <Card :results = "results" :imageUrl= "imageUrl"  />
+        </div>
         <Share @share='share' />
-        <b-btn @click="detectImage">Show</b-btn>
     </div>
 </template>
 <script>
@@ -12,6 +13,7 @@ import Card from './Card'
 export default {
     data(){
         return{
+            results: {}
         }
     },
     components: {
@@ -29,6 +31,7 @@ export default {
                 }
             })
             .then(({data}) => {
+                console.log(data)
                 console.log(`Success`)
             })
             .catch((err) => {
@@ -36,17 +39,45 @@ export default {
             })
         },
         detectImage(url){
-            url = this.imageUrl
             console.log(url)
+            let self = this
             axios.post(`${this.apiUrl}/image/detection`, {
                 url
             })
             .then(({data}) => {
-                console.log(data)
+                const detected = data.detected
+                self.results = {
+                    Joy: self.convertToNum(detected.joyLikelihood),
+                    Sorrow: self.convertToNum(detected.sorrowLikelihood),
+                    Anger: self.convertToNum(detected.angerLikelihood),
+                    Surprise: self.convertToNum(detected.surpriseLikelihood),
+                    Exposed: self.convertToNum(detected.underExposedLikelihood),
+                    Blurred: self.convertToNum(detected.blurredLikelihood),
+                    Headwear: self.convertToNum(detected.headwearLikelihood)
+                }
             })
             .catch(err => {
                 console.log(err)
             })
+        },
+        convertToNum(level){
+            switch (level) {
+                case 'VERY_UNLIKELY':
+                    return 20
+                case 'UNLIKELY':
+                    return 40
+                case 'LIKELY':
+                    return 70
+                case 'VERY_LIKELY':
+                    return 100
+                default:
+                    return 50
+            }
+        }
+    },
+    mounted(){
+        if(this.imageUrl){
+            this.detectImage(this.imageUrl)
         }
     },
     watch: {

@@ -8546,7 +8546,74 @@ if (inBrowser) {
 
 var _default = Vue;
 exports.default = _default;
-},{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -8835,33 +8902,67 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
-  name: 'Navigation'
+  name: "Navigation"
 };
 exports.default = _default;
-<<<<<<< HEAD
-        var $55e767 = exports.default || module.exports;
-=======
         var $3576e1 = exports.default || module.exports;
->>>>>>> membuat components result, card dan share
       
       if (typeof $3576e1 === 'function') {
         $3576e1 = $3576e1.options;
       }
     
         /* template */
-<<<<<<< HEAD
-        Object.assign($55e767, (function () {
-=======
         Object.assign($3576e1, (function () {
->>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "b-navbar",
-    [_c("b-navbar-brand", [_vm._v("\n        navbar\n    ")])],
+    {
+      staticStyle: { position: "sticky-top", "z-index": "999" },
+      attrs: { toggleable: "lg", type: "dark", variant: "info" }
+    },
+    [
+      _c("b-navbar-brand", { attrs: { href: "#" } }, [
+        _vm._v("Expression Detection")
+      ]),
+      _vm._v(" "),
+      _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
+      _vm._v(" "),
+      _c(
+        "b-collapse",
+        { attrs: { id: "nav-collapse", "is-nav": "" } },
+        [
+          _c(
+            "b-navbar-nav",
+            { staticClass: "menu" },
+            [
+              _c(
+                "b-nav-item",
+                { staticClass: "text-center", attrs: { href: "#" } },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-nav-item",
+                { staticClass: "text-center", attrs: { href: "#" } },
+                [_vm._v("Upload")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
     1
   )
 }
@@ -8872,11 +8973,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
-            _scopeId: null,
-=======
             _scopeId: "data-v-3576e1",
->>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -8889,22 +8986,20 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-<<<<<<< HEAD
-            api.createRecord('$55e767', $55e767);
-          } else {
-            api.reload('$55e767', $55e767);
-=======
             api.createRecord('$3576e1', $3576e1);
           } else {
             api.reload('$3576e1', $3576e1);
->>>>>>> membuat components result, card dan share
           }
         }
 
         
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
       }
     })();
-},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -10681,7 +10776,125 @@ module.exports.default = axios;
 
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Carousel.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "Carousel"
+};
+exports.default = _default;
+        var $05d423 = exports.default || module.exports;
+      
+      if (typeof $05d423 === 'function') {
+        $05d423 = $05d423.options;
+      }
+    
+        /* template */
+        Object.assign($05d423, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-carousel",
+        {
+          staticStyle: { "text-shadow": "1px 1px 2px #333" },
+          attrs: {
+            id: "carousel-1",
+            interval: 200,
+            fade: "",
+            background: "#ababab",
+            "img-width": "800",
+            "img-height": "100"
+          }
+        },
+        [
+          _c("b-carousel-slide", {
+            staticClass: "carousel-image",
+            attrs: { "img-src": "https://picsum.photos/800/600/?image=52" }
+          }),
+          _vm._v(" "),
+          _c("b-carousel-slide", {
+            staticClass: "carousel-image",
+            attrs: { "img-src": "https://picsum.photos/800/600/?image=54" }
+          }),
+          _vm._v(" "),
+          _c("b-carousel-slide", {
+            staticClass: "carousel-image",
+            attrs: { "img-src": "https://picsum.photos/800/600/?image=58" }
+          }),
+          _vm._v(" "),
+          _c("b-carousel-slide", {
+            staticClass: "carousel-image",
+            attrs: { "img-src": "https://picsum.photos/800/600/?image=55" }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-05d423",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$05d423', $05d423);
+          } else {
+            api.reload('$05d423', $05d423);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Form.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10699,25 +10912,73 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
+  name: "UploadForm",
   data: function data() {
-    return {};
+    return {
+      file: null,
+      url: null
+    };
   },
-  name: "Upload",
-  methods: {},
+  methods: {
+    onFileChange: function onFileChange(e) {
+      var file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+    removeImage: function removeImage() {
+      this.file = null;
+      this.url = null;
+    },
+    upload: function upload() {
+      var _this = this;
+
+      var fd = new FormData();
+      fd.append("file", this.file);
+      console.log(fd);
+      (0, _axios.default)({
+        method: "post",
+        url: "http://35.224.51.213:3000/image/singleupload",
+        data: fd
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        _this.$emit("catchUrl", data);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  },
   created: function created() {}
 };
 exports.default = _default;
-<<<<<<< HEAD
-        var $e50f8a = exports.default || module.exports;
-      
-      if (typeof $e50f8a === 'function') {
-        $e50f8a = $e50f8a.options;
-      }
-    
-        /* template */
-        Object.assign($e50f8a, (function () {
-=======
         var $7b2174 = exports.default || module.exports;
       
       if (typeof $7b2174 === 'function') {
@@ -10726,12 +10987,76 @@ exports.default = _default;
     
         /* template */
         Object.assign($7b2174, (function () {
->>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    { staticClass: "middle" },
+    [
+      _vm.url
+        ? _c(
+            "div",
+            {
+              staticClass: "d-flex flex-column justify-content-center container"
+            },
+            [
+              _c("div", { staticClass: "justify-content-center" }, [
+                _c("img", { staticClass: "image", attrs: { src: _vm.url } })
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                {
+                  staticClass: "my-5 w-25 font-weight-bold",
+                  staticStyle: { margin: "0 auto", "font-size": "large" },
+                  on: {
+                    click: function($event) {
+                      return _vm.removeImage()
+                    }
+                  }
+                },
+                [_vm._v("Remove image")]
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("b-form-file", {
+        attrs: {
+          state: Boolean(_vm.file),
+          placeholder: "Choose a file or drop it here...",
+          "drop-placeholder": "Drop file here...",
+          action: "/upload-single",
+          method: "post",
+          enctype: "multipart/form-data"
+        },
+        on: { change: _vm.onFileChange },
+        model: {
+          value: _vm.file,
+          callback: function($$v) {
+            _vm.file = $$v
+          },
+          expression: "file"
+        }
+      }),
+      _vm._v(" "),
+      _vm.file
+        ? _c(
+            "b-button",
+            {
+              staticClass: "mt-5 font-weight-bold",
+              staticStyle: { "font-size": "large" },
+              on: { click: _vm.upload }
+            },
+            [_vm._v("Upload")]
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10740,11 +11065,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
-            _scopeId: null,
-=======
             _scopeId: "data-v-7b2174",
->>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -10757,22 +11078,20 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-<<<<<<< HEAD
-            api.createRecord('$e50f8a', $e50f8a);
-          } else {
-            api.reload('$e50f8a', $e50f8a);
-=======
             api.createRecord('$7b2174', $7b2174);
           } else {
             api.reload('$7b2174', $7b2174);
->>>>>>> membuat components result, card dan share
           }
         }
 
         
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
       }
     })();
-},{"axios":"node_modules/axios/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10780,171 +11099,32 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Nav = _interopRequireDefault(require("./general/Nav.vue"));
+var _axios = _interopRequireDefault(require("axios"));
 
-var _Upload = _interopRequireDefault(require("./upload/Upload"));
+var _Carousel = _interopRequireDefault(require("./Carousel"));
+
+var _Form = _interopRequireDefault(require("./Form"));
+
+var _name$data$components;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-var _default = {
-  data: function data() {
-    return {};
-  },
-  components: {
-    Navigation: _Nav.default,
-    Upload: _Upload.default
-  },
-  methods: {},
-  created: function created() {}
-};
-exports.default = _default;
-<<<<<<< HEAD
-        var $9ecefe = exports.default || module.exports;
-=======
-        var $05d423 = exports.default || module.exports;
->>>>>>> membuat components result, card dan share
-      
-      if (typeof $05d423 === 'function') {
-        $05d423 = $05d423.options;
-      }
-    
-        /* template */
-<<<<<<< HEAD
-        Object.assign($9ecefe, (function () {
-=======
-        Object.assign($05d423, (function () {
->>>>>>> membuat components result, card dan share
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_c("Navigation"), _vm._v(" "), _c("Upload")], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-<<<<<<< HEAD
-            _scopeId: null,
-=======
-            _scopeId: "data-v-05d423",
->>>>>>> membuat components result, card dan share
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-<<<<<<< HEAD
-            api.createRecord('$9ecefe', $9ecefe);
-          } else {
-            api.reload('$9ecefe', $9ecefe);
-=======
-            api.createRecord('$05d423', $05d423);
-          } else {
-            api.reload('$05d423', $05d423);
->>>>>>> membuat components result, card dan share
-          }
-        }
-
-        
-      }
-    })();
-<<<<<<< HEAD
-},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-=======
-},{"./Form":"src/components/upload/Form.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
-"use strict";
->>>>>>> membuat components result, card dan share
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-<<<<<<< HEAD
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-=======
 var _default = (_name$data$components = {
   name: "Upload",
   data: function data() {
     return {};
   },
   components: {
-    Carousel: _Carousel.default
+    Carousel: _Carousel.default,
+    UploadForm: _Form.default
   }
-}, _defineProperty(_name$data$components, "name", "Upload"), _defineProperty(_name$data$components, "methods", {}), _defineProperty(_name$data$components, "created", function created() {}), _name$data$components);
+}, _defineProperty(_name$data$components, "name", "Upload"), _defineProperty(_name$data$components, "methods", {
+  catchUrl: function catchUrl(url) {
+    this.$emit('url', url);
+  }
+}), _defineProperty(_name$data$components, "created", function created() {}), _name$data$components);
 
 exports.default = _default;
         var $823983 = exports.default || module.exports;
@@ -10959,7 +11139,15 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("Carousel")], 1)
+  return _c(
+    "div",
+    [
+      _c("Carousel"),
+      _vm._v(" "),
+      _c("UploadForm", { on: { catchUrl: _vm.catchUrl } })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10990,7 +11178,7 @@ render._withStripped = true
         
       }
     })();
-},{"axios":"node_modules/axios/index.js","./Carousel":"src/components/upload/Carousel.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Share.vue":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","./Carousel":"src/components/upload/Carousel.vue","./Form":"src/components/upload/Form.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Share.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11086,23 +11274,11 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   data: function data() {
-    return {
-      emotionals: {
-        Joy: null,
-        Sorrow: null,
-        Anger: null,
-        Surprise: null,
-        Exporesed: null,
-        Blurred: null,
-        Headwear: null
-      }
-    };
+    return {};
   },
-  props: []
+  props: ['imageUrl', 'results']
 };
 exports.default = _default;
         var $7584cf = exports.default || module.exports;
@@ -11117,66 +11293,49 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-4" }, [
+      _c("img", {
+        staticClass: "img-thumbnail",
+        staticStyle: { height: "300px !important", width: "100%" },
+        attrs: { src: _vm.imageUrl, alt: "...", height: "400" }
+      })
+    ]),
+    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "container justify-content-center d-flex  mt-3" },
+      { staticClass: "col-8 p-3 " },
       [
-        _c(
-          "b-card",
-          {
-            staticClass: "mb-3",
-            staticStyle: { width: "80% !important" },
-            attrs: {
-              "img-src": "https://placekitten.com/300/300",
-              "img-alt": "Card image",
-              "img-left": ""
-            }
-          },
-          [
-            _c(
-              "b-card-text",
-              [
-                _c("b-badge", { attrs: { variant: "success" } }, [
-                  _vm._v("image detected")
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "row mb-1" }, [
-                  _c("div", { staticClass: "col-sm-2" }, [
-                    _c("label", { attrs: { for: "" } }, [_vm._v("Joy:")])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-10 pt-1" },
-                    [
-                      _c("b-progress", {
-                        staticClass: "mb-3",
-                        attrs: { value: "15", "show-progress": "" }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ],
-              1
-            )
-          ],
-          1
-        )
+        _vm._l(_vm.results, function(value, name) {
+          return [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c("label", [_vm._v(_vm._s(name) + ":")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-sm-10 " },
+                [
+                  _c("b-progress", {
+                    staticClass: "mb-3",
+                    staticStyle: { height: "25px" },
+                    attrs: { value: value, "show-progress": "" }
+                  })
+                ],
+                1
+              )
+            ])
+          ]
+        })
       ],
-      1
+      2
     )
   ])
->>>>>>> membuat components result, card dan share
 }
+var staticRenderFns = []
+render._withStripped = true
 
-<<<<<<< HEAD
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
-=======
           return {
             render: render,
             staticRenderFns: staticRenderFns,
@@ -11204,7 +11363,6 @@ module.exports = reloadCSS;
       }
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Result.vue":[function(require,module,exports) {
->>>>>>> membuat components result, card dan share
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11212,15 +11370,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-<<<<<<< HEAD
-var _Parent = _interopRequireDefault(require("./components/Parent"));
-=======
 var _axios = _interopRequireDefault(require("axios"));
 
 var _Share = _interopRequireDefault(require("./Share"));
 
 var _Card = _interopRequireDefault(require("./Card"));
->>>>>>> membuat components result, card dan share
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11230,22 +11384,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
->>>>>>> membuat components result, card dan share
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      results: {}
+    };
   },
   components: {
-<<<<<<< HEAD
-    Parent: _Parent.default
-  }
-};
-exports.default = _default;
-        var $c051a9 = exports.default || module.exports;
-=======
     Share: _Share.default,
     Card: _Card.default
   },
@@ -11260,23 +11407,56 @@ exports.default = _default;
         }
       }).then(function (_ref) {
         var data = _ref.data;
+        console.log(data);
         console.log("Success");
       }).catch(function (err) {
         console.log(err);
       });
     },
     detectImage: function detectImage(url) {
-      url = this.imageUrl;
       console.log(url);
+      var self = this;
 
       _axios.default.post("".concat(this.apiUrl, "/image/detection"), {
         url: url
       }).then(function (_ref2) {
         var data = _ref2.data;
-        console.log(data);
+        var detected = data.detected;
+        self.results = {
+          Joy: self.convertToNum(detected.joyLikelihood),
+          Sorrow: self.convertToNum(detected.sorrowLikelihood),
+          Anger: self.convertToNum(detected.angerLikelihood),
+          Surprise: self.convertToNum(detected.surpriseLikelihood),
+          Exposed: self.convertToNum(detected.underExposedLikelihood),
+          Blurred: self.convertToNum(detected.blurredLikelihood),
+          Headwear: self.convertToNum(detected.headwearLikelihood)
+        };
       }).catch(function (err) {
         console.log(err);
       });
+    },
+    convertToNum: function convertToNum(level) {
+      switch (level) {
+        case 'VERY_UNLIKELY':
+          return 20;
+
+        case 'UNLIKELY':
+          return 40;
+
+        case 'LIKELY':
+          return 70;
+
+        case 'VERY_LIKELY':
+          return 100;
+
+        default:
+          return 50;
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.imageUrl) {
+      this.detectImage(this.imageUrl);
     }
   },
   watch: {
@@ -11289,16 +11469,12 @@ exports.default = _default;
 };
 exports.default = _default;
         var $0f5f8e = exports.default || module.exports;
->>>>>>> membuat components result, card dan share
       
       if (typeof $0f5f8e === 'function') {
         $0f5f8e = $0f5f8e.options;
       }
     
         /* template */
-<<<<<<< HEAD
-        Object.assign($c051a9, (function () {
-=======
         Object.assign($0f5f8e, (function () {
           var render = function() {
   var _vm = this
@@ -11307,11 +11483,18 @@ exports.default = _default;
   return _c(
     "div",
     [
-      _c("Card"),
+      _c(
+        "div",
+        { staticClass: "container mt-3" },
+        [
+          _c("Card", {
+            attrs: { results: _vm.results, imageUrl: _vm.imageUrl }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("Share", { on: { share: _vm.share } }),
-      _vm._v(" "),
-      _c("b-btn", { on: { click: _vm.detectImage } }, [_vm._v("Show")])
+      _c("Share", { on: { share: _vm.share } })
     ],
     1
   )
@@ -11376,8 +11559,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   data: function data() {
     return {
-      isUpload: false,
-      imageUrl: 'https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI',
+      isUpload: true,
+      imageUrl: '',
       apiUrl: 'http://localhost:3000'
     };
   },
@@ -11403,14 +11586,10 @@ exports.default = _default;
     
         /* template */
         Object.assign($2d64bc, (function () {
->>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c("div", [_c("Parent")], 1)
-=======
   return _c(
     "div",
     [
@@ -11426,7 +11605,6 @@ exports.default = _default;
     ],
     2
   )
->>>>>>> membuat components result, card dan share
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11435,11 +11613,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
-            _scopeId: "data-v-c051a9",
-=======
             _scopeId: null,
->>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -11452,11 +11626,6 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-<<<<<<< HEAD
-            api.createRecord('$c051a9', $c051a9);
-          } else {
-            api.reload('$c051a9', $c051a9);
-=======
             api.createRecord('$2d64bc', $2d64bc);
           } else {
             api.reload('$2d64bc', $2d64bc);
@@ -11533,7 +11702,6 @@ render._withStripped = true
             api.createRecord('$9def88', $9def88);
           } else {
             api.reload('$9def88', $9def88);
->>>>>>> membuat components result, card dan share
           }
         }
 
@@ -51426,11 +51594,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44819" + '/');
->>>>>>> membuat components result, card dan share
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37021" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
