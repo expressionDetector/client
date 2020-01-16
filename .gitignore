@@ -1,3 +1,8 @@
 node_modules
+<<<<<<< HEAD
 .cache
 dist
+=======
+dist
+.cache
+>>>>>>> .gitgnore dist, .cache
