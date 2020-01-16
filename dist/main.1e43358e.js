@@ -8839,14 +8839,14 @@ var _default = {
   name: 'Navigation'
 };
 exports.default = _default;
-        var $3576e1 = exports.default || module.exports;
+        var $d02e75 = exports.default || module.exports;
       
-      if (typeof $3576e1 === 'function') {
-        $3576e1 = $3576e1.options;
+      if (typeof $d02e75 === 'function') {
+        $d02e75 = $d02e75.options;
       }
     
         /* template */
-        Object.assign($3576e1, (function () {
+        Object.assign($d02e75, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8877,9 +8877,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3576e1', $3576e1);
+            api.createRecord('$d02e75', $d02e75);
           } else {
-            api.reload('$3576e1', $3576e1);
+            api.reload('$d02e75', $d02e75);
           }
         }
 
@@ -9936,7 +9936,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","../core/buildFullPath":"node_modules/axios/lib/core/buildFullPath.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","../core/buildFullPath":"node_modules/axios/lib/core/buildFullPath.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -10245,7 +10245,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","process":"node_modules/process/browser.js"}],"node_modules/axios/lib/core/dispatchRequest.js":[function(require,module,exports) {
+},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","process":"../../../../../../../usr/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/axios/lib/core/dispatchRequest.js":[function(require,module,exports) {
 'use strict';
 
 var utils = require('./../utils');
@@ -10690,14 +10690,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $823983 = exports.default || module.exports;
+        var $c884b6 = exports.default || module.exports;
       
-      if (typeof $823983 === 'function') {
-        $823983 = $823983.options;
+      if (typeof $c884b6 === 'function') {
+        $c884b6 = $c884b6.options;
       }
     
         /* template */
-        Object.assign($823983, (function () {
+        Object.assign($c884b6, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10724,9 +10724,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$823983', $823983);
+            api.createRecord('$c884b6', $c884b6);
           } else {
-            api.reload('$823983', $823983);
+            api.reload('$c884b6', $c884b6);
           }
         }
 
@@ -10765,14 +10765,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2d64bc = exports.default || module.exports;
+        var $0953b8 = exports.default || module.exports;
       
-      if (typeof $2d64bc === 'function') {
-        $2d64bc = $2d64bc.options;
+      if (typeof $0953b8 === 'function') {
+        $0953b8 = $0953b8.options;
       }
     
         /* template */
-        Object.assign($2d64bc, (function () {
+        Object.assign($0953b8, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10799,16 +10799,16 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2d64bc', $2d64bc);
+            api.createRecord('$0953b8', $0953b8);
           } else {
-            api.reload('$2d64bc', $2d64bc);
+            api.reload('$0953b8', $0953b8);
           }
         }
 
         
       }
     })();
-},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -10840,7 +10840,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -10875,7 +10875,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10885,6 +10885,8 @@ exports.default = void 0;
 
 var _Parent = _interopRequireDefault(require("./components/Parent"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //
@@ -10893,28 +10895,77 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      imageUrl: ''
+    };
   },
   components: {
     Parent: _Parent.default
+  },
+  methods: {
+    share: function share() {
+      (0, _axios.default)({
+        method: 'POST',
+        url: 'http://localhost:3000/share',
+        data: {
+          imageUrl: this.imageUrl
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+        console.log("Success");
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
   }
 };
 exports.default = _default;
-        var $9def88 = exports.default || module.exports;
+        var $232626 = exports.default || module.exports;
       
-      if (typeof $9def88 === 'function') {
-        $9def88 = $9def88.options;
+      if (typeof $232626 === 'function') {
+        $232626 = $232626.options;
       }
     
         /* template */
-        Object.assign($9def88, (function () {
+        Object.assign($232626, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("Parent")], 1)
+  return _c(
+    "div",
+    [
+      _c("Parent"),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.imageUrl,
+            expression: "imageUrl"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.imageUrl },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.imageUrl = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.share } }, [_vm._v("Share")])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10923,7 +10974,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-9def88",
+            _scopeId: "data-v-232626",
             functional: undefined
           };
         })());
@@ -10936,9 +10987,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$9def88', $9def88);
+            api.createRecord('$232626', $232626);
           } else {
-            api.reload('$9def88', $9def88);
+            api.reload('$232626', $232626);
           }
         }
 
@@ -10949,7 +11000,7 @@ render._withStripped = true
       
       }
     })();
-},{"./components/Parent":"src/components/Parent.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/bootstrap-vue/esm/utils/vue.js":[function(require,module,exports) {
+},{"./components/Parent":"src/components/Parent.vue","axios":"node_modules/axios/index.js","_css_loader":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/bootstrap-vue/esm/utils/vue.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11289,7 +11340,7 @@ var getNoWarn = function getNoWarn() {
 };
 
 exports.getNoWarn = getNoWarn;
-},{"process":"node_modules/process/browser.js"}],"node_modules/bootstrap-vue/esm/utils/safe-types.js":[function(require,module,exports) {
+},{"process":"../../../../../../../usr/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/bootstrap-vue/esm/utils/safe-types.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50773,13 +50824,13 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/bootstrap-vue/dist/bootstrap-vue.css":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/bootstrap-vue/dist/bootstrap-vue.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -50803,7 +50854,7 @@ new _vue.default({
     return h(_App.default);
   }
 }).$mount('#app');
-},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./App.vue":"src/App.vue","bootstrap-vue":"node_modules/bootstrap-vue/esm/index.js","../node_modules/bootstrap/dist/css/bootstrap.css":"node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/bootstrap-vue/dist/bootstrap-vue.css":"node_modules/bootstrap-vue/dist/bootstrap-vue.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.runtime.esm.js","./App.vue":"src/App.vue","bootstrap-vue":"node_modules/bootstrap-vue/esm/index.js","../node_modules/bootstrap/dist/css/bootstrap.css":"node_modules/bootstrap/dist/css/bootstrap.css","../node_modules/bootstrap-vue/dist/bootstrap-vue.css":"node_modules/bootstrap-vue/dist/bootstrap-vue.css"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -50831,7 +50882,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34959" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40979" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -51007,5 +51058,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.js"], null)
+},{}]},{},["../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.js"], null)
 //# sourceMappingURL=/main.1e43358e.js.map
