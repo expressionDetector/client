@@ -10783,6 +10783,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10816,6 +10838,21 @@ var _default = {
     removeImage: function removeImage() {
       this.file = null;
       this.url = null;
+    },
+    upload: function upload() {
+      var fd = new FormData();
+      fd.append("file", this.file);
+      console.log(fd);
+      (0, _axios.default)({
+        method: "post",
+        url: "http://35.224.51.213:3000/image/singleupload",
+        data: fd
+      }).then(function (_ref) {
+        var data = _ref.data;
+        console.log(data);
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   },
   created: function created() {}
@@ -10840,13 +10877,19 @@ exports.default = _default;
       _vm.url
         ? _c(
             "div",
-            { staticClass: "d-flex flex-column justify-content-center" },
+            {
+              staticClass: "d-flex flex-column justify-content-center container"
+            },
             [
-              _c("img", { staticClass: "image", attrs: { src: _vm.url } }),
+              _c("div", { staticClass: "justify-content-center" }, [
+                _c("img", { staticClass: "image", attrs: { src: _vm.url } })
+              ]),
               _vm._v(" "),
               _c(
-                "button",
+                "b-button",
                 {
+                  staticClass: "my-5 w-25 font-weight-bold",
+                  staticStyle: { margin: "0 auto", "font-size": "large" },
                   on: {
                     click: function($event) {
                       return _vm.removeImage()
@@ -10855,7 +10898,8 @@ exports.default = _default;
                 },
                 [_vm._v("Remove image")]
               )
-            ]
+            ],
+            1
           )
         : _vm._e(),
       _vm._v(" "),
@@ -10863,7 +10907,10 @@ exports.default = _default;
         attrs: {
           state: Boolean(_vm.file),
           placeholder: "Choose a file or drop it here...",
-          "drop-placeholder": "Drop file here..."
+          "drop-placeholder": "Drop file here...",
+          action: "/upload-single",
+          method: "post",
+          enctype: "multipart/form-data"
         },
         on: { change: _vm.onFileChange },
         model: {
@@ -10876,7 +10923,15 @@ exports.default = _default;
       }),
       _vm._v(" "),
       _vm.file
-        ? _c("b-button", { on: { click: _vm.upload } }, [_vm._v("Upload")])
+        ? _c(
+            "b-button",
+            {
+              staticClass: "mt-5 font-weight-bold",
+              staticStyle: { "font-size": "large" },
+              on: { click: _vm.upload }
+            },
+            [_vm._v("Upload")]
+          )
         : _vm._e()
     ],
     1
@@ -10915,7 +10970,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Carousel.vue":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Carousel.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10927,18 +10982,6 @@ var _Form = _interopRequireDefault(require("./Form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -10996,22 +11039,22 @@ exports.default = _default;
     },
     [
       _c("b-carousel-slide", {
-        staticStyle: { height: "100vh !important" },
+        staticClass: "carousel-image",
         attrs: { "img-src": "https://picsum.photos/800/600/?image=52" }
       }),
       _vm._v(" "),
       _c("b-carousel-slide", {
-        staticStyle: { height: "100vh !important" },
+        staticClass: "carousel-image",
         attrs: { "img-src": "https://picsum.photos/800/600/?image=54" }
       }),
       _vm._v(" "),
       _c("b-carousel-slide", {
-        staticStyle: { height: "100vh !important" },
+        staticClass: "carousel-image",
         attrs: { "img-src": "https://picsum.photos/800/600/?image=58" }
       }),
       _vm._v(" "),
       _c("b-carousel-slide", {
-        staticStyle: { height: "100vh !important" },
+        staticClass: "carousel-image",
         attrs: { "img-src": "https://picsum.photos/800/600/?image=55" }
       }),
       _vm._v(" "),
@@ -51156,7 +51199,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35269" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

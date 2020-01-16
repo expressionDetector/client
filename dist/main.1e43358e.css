@@ -26,8 +26,11 @@
   z-index: 999;
 }
 .image[data-v-1ce225] {
-  height: 10vh;
-  width: 10vh;
+  height: 50vh;
+  width: 50vh;
+}
+.carousel-image[data-v-66850e] {
+  height: 100vh !important;
 }
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
