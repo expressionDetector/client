@@ -5,7 +5,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="menu">
         <b-nav-item href="#" class="text-center">Home</b-nav-item>
-        <b-nav-item href="#" disabled>Upload</b-nav-item>
+        <b-nav-item href="#" class="text-center">Upload</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

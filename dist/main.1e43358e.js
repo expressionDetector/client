@@ -8948,9 +8948,11 @@ exports.default = _default;
                 [_vm._v("Home")]
               ),
               _vm._v(" "),
-              _c("b-nav-item", { attrs: { href: "#", disabled: "" } }, [
-                _vm._v("Upload")
-              ])
+              _c(
+                "b-nav-item",
+                { staticClass: "text-center", attrs: { href: "#" } },
+                [_vm._v("Upload")]
+              )
             ],
             1
           )
