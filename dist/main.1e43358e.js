@@ -8839,14 +8839,22 @@ var _default = {
   name: 'Navigation'
 };
 exports.default = _default;
+<<<<<<< HEAD
         var $55e767 = exports.default || module.exports;
+=======
+        var $3576e1 = exports.default || module.exports;
+>>>>>>> membuat components result, card dan share
       
-      if (typeof $55e767 === 'function') {
-        $55e767 = $55e767.options;
+      if (typeof $3576e1 === 'function') {
+        $3576e1 = $3576e1.options;
       }
     
         /* template */
+<<<<<<< HEAD
         Object.assign($55e767, (function () {
+=======
+        Object.assign($3576e1, (function () {
+>>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8864,7 +8872,11 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
+<<<<<<< HEAD
             _scopeId: null,
+=======
+            _scopeId: "data-v-3576e1",
+>>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -8877,9 +8889,15 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
+<<<<<<< HEAD
             api.createRecord('$55e767', $55e767);
           } else {
             api.reload('$55e767', $55e767);
+=======
+            api.createRecord('$3576e1', $3576e1);
+          } else {
+            api.reload('$3576e1', $3576e1);
+>>>>>>> membuat components result, card dan share
           }
         }
 
@@ -10690,6 +10708,7 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
+<<<<<<< HEAD
         var $e50f8a = exports.default || module.exports;
       
       if (typeof $e50f8a === 'function') {
@@ -10698,6 +10717,16 @@ exports.default = _default;
     
         /* template */
         Object.assign($e50f8a, (function () {
+=======
+        var $7b2174 = exports.default || module.exports;
+      
+      if (typeof $7b2174 === 'function') {
+        $7b2174 = $7b2174.options;
+      }
+    
+        /* template */
+        Object.assign($7b2174, (function () {
+>>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10711,7 +10740,11 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
+<<<<<<< HEAD
             _scopeId: null,
+=======
+            _scopeId: "data-v-7b2174",
+>>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -10724,9 +10757,15 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
+<<<<<<< HEAD
             api.createRecord('$e50f8a', $e50f8a);
           } else {
             api.reload('$e50f8a', $e50f8a);
+=======
+            api.createRecord('$7b2174', $7b2174);
+          } else {
+            api.reload('$7b2174', $7b2174);
+>>>>>>> membuat components result, card dan share
           }
         }
 
@@ -10765,14 +10804,22 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
+<<<<<<< HEAD
         var $9ecefe = exports.default || module.exports;
+=======
+        var $05d423 = exports.default || module.exports;
+>>>>>>> membuat components result, card dan share
       
-      if (typeof $9ecefe === 'function') {
-        $9ecefe = $9ecefe.options;
+      if (typeof $05d423 === 'function') {
+        $05d423 = $05d423.options;
       }
     
         /* template */
+<<<<<<< HEAD
         Object.assign($9ecefe, (function () {
+=======
+        Object.assign($05d423, (function () {
+>>>>>>> membuat components result, card dan share
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10786,7 +10833,11 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
+<<<<<<< HEAD
             _scopeId: null,
+=======
+            _scopeId: "data-v-05d423",
+>>>>>>> membuat components result, card dan share
             functional: undefined
           };
         })());
@@ -10799,17 +10850,28 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
+<<<<<<< HEAD
             api.createRecord('$9ecefe', $9ecefe);
           } else {
             api.reload('$9ecefe', $9ecefe);
+=======
+            api.createRecord('$05d423', $05d423);
+          } else {
+            api.reload('$05d423', $05d423);
+>>>>>>> membuat components result, card dan share
           }
         }
 
         
       }
     })();
+<<<<<<< HEAD
 },{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
+=======
+},{"./Form":"src/components/upload/Form.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+"use strict";
+>>>>>>> membuat components result, card dan share
 
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -10838,6 +10900,7 @@ function getBaseURL(url) {
   return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
 }
 
+<<<<<<< HEAD
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 },{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
@@ -10872,10 +10935,538 @@ function reloadCSS() {
 
     cssTimeout = null;
   }, 50);
+=======
+var _default = (_name$data$components = {
+  name: "Upload",
+  data: function data() {
+    return {};
+  },
+  components: {
+    Carousel: _Carousel.default
+  }
+}, _defineProperty(_name$data$components, "name", "Upload"), _defineProperty(_name$data$components, "methods", {}), _defineProperty(_name$data$components, "created", function created() {}), _name$data$components);
+
+exports.default = _default;
+        var $823983 = exports.default || module.exports;
+      
+      if (typeof $823983 === 'function') {
+        $823983 = $823983.options;
+      }
+    
+        /* template */
+        Object.assign($823983, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("Carousel")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$823983', $823983);
+          } else {
+            api.reload('$823983', $823983);
+          }
+        }
+
+        
+      }
+    })();
+},{"axios":"node_modules/axios/index.js","./Carousel":"src/components/upload/Carousel.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Share.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {};
+  },
+  methods: {
+    share: function share() {
+      this.$emit('share');
+    }
+  }
+};
+exports.default = _default;
+        var $eb08e5 = exports.default || module.exports;
+      
+      if (typeof $eb08e5 === 'function') {
+        $eb08e5 = $eb08e5.options;
+      }
+    
+        /* template */
+        Object.assign($eb08e5, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("button", { on: { click: _vm.share } }, [_vm._v("Share")])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$eb08e5', $eb08e5);
+          } else {
+            api.reload('$eb08e5', $eb08e5);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Card.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      emotionals: {
+        Joy: null,
+        Sorrow: null,
+        Anger: null,
+        Surprise: null,
+        Exporesed: null,
+        Blurred: null,
+        Headwear: null
+      }
+    };
+  },
+  props: []
+};
+exports.default = _default;
+        var $7584cf = exports.default || module.exports;
+      
+      if (typeof $7584cf === 'function') {
+        $7584cf = $7584cf.options;
+      }
+    
+        /* template */
+        Object.assign($7584cf, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "container justify-content-center d-flex  mt-3" },
+      [
+        _c(
+          "b-card",
+          {
+            staticClass: "mb-3",
+            staticStyle: { width: "80% !important" },
+            attrs: {
+              "img-src": "https://placekitten.com/300/300",
+              "img-alt": "Card image",
+              "img-left": ""
+            }
+          },
+          [
+            _c(
+              "b-card-text",
+              [
+                _c("b-badge", { attrs: { variant: "success" } }, [
+                  _vm._v("image detected")
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row mb-1" }, [
+                  _c("div", { staticClass: "col-sm-2" }, [
+                    _c("label", { attrs: { for: "" } }, [_vm._v("Joy:")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-10 pt-1" },
+                    [
+                      _c("b-progress", {
+                        staticClass: "mb-3",
+                        attrs: { value: "15", "show-progress": "" }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
+>>>>>>> membuat components result, card dan share
 }
 
+<<<<<<< HEAD
 module.exports = reloadCSS;
 },{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
+=======
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$7584cf', $7584cf);
+          } else {
+            api.reload('$7584cf', $7584cf);
+          }
+        }
+
+        
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Result.vue":[function(require,module,exports) {
+>>>>>>> membuat components result, card dan share
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+<<<<<<< HEAD
+var _Parent = _interopRequireDefault(require("./components/Parent"));
+=======
+var _axios = _interopRequireDefault(require("axios"));
+
+var _Share = _interopRequireDefault(require("./Share"));
+
+var _Card = _interopRequireDefault(require("./Card"));
+>>>>>>> membuat components result, card dan share
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+<<<<<<< HEAD
+=======
+//
+>>>>>>> membuat components result, card dan share
+var _default = {
+  data: function data() {
+    return {};
+  },
+  components: {
+<<<<<<< HEAD
+    Parent: _Parent.default
+  }
+};
+exports.default = _default;
+        var $c051a9 = exports.default || module.exports;
+=======
+    Share: _Share.default,
+    Card: _Card.default
+  },
+  props: ['imageUrl', 'apiUrl'],
+  methods: {
+    share: function share() {
+      (0, _axios.default)({
+        method: 'POST',
+        url: 'http://localhost:3000/share',
+        data: {
+          imageUrl: this.imageUrl
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+        console.log("Success");
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    detectImage: function detectImage(url) {
+      url = this.imageUrl;
+      console.log(url);
+
+      _axios.default.post("".concat(this.apiUrl, "/image/detection"), {
+        url: url
+      }).then(function (_ref2) {
+        var data = _ref2.data;
+        console.log(data);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  },
+  watch: {
+    imageUrl: function imageUrl(val) {
+      if (val) {
+        this.detectImage(val);
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $0f5f8e = exports.default || module.exports;
+>>>>>>> membuat components result, card dan share
+      
+      if (typeof $0f5f8e === 'function') {
+        $0f5f8e = $0f5f8e.options;
+      }
+    
+        /* template */
+<<<<<<< HEAD
+        Object.assign($c051a9, (function () {
+=======
+        Object.assign($0f5f8e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("Card"),
+      _vm._v(" "),
+      _c("Share", { on: { share: _vm.share } }),
+      _vm._v(" "),
+      _c("b-btn", { on: { click: _vm.detectImage } }, [_vm._v("Show")])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$0f5f8e', $0f5f8e);
+          } else {
+            api.reload('$0f5f8e', $0f5f8e);
+          }
+        }
+
+        
+      }
+    })();
+},{"axios":"node_modules/axios/index.js","./Share":"src/components/result/Share.vue","./Card":"src/components/result/Card.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Nav = _interopRequireDefault(require("./general/Nav.vue"));
+
+var _Upload = _interopRequireDefault(require("./upload/Upload"));
+
+var _Result = _interopRequireDefault(require("./result/Result"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      isUpload: false,
+      imageUrl: 'https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI',
+      apiUrl: 'http://localhost:3000'
+    };
+  },
+  components: {
+    Navigation: _Nav.default,
+    Upload: _Upload.default,
+    Result: _Result.default
+  },
+  methods: {
+    catchUrl: function catchUrl(payload) {
+      this.isUpload = false;
+      this.imageUrl = payload;
+    }
+  },
+  created: function created() {}
+};
+exports.default = _default;
+        var $2d64bc = exports.default || module.exports;
+      
+      if (typeof $2d64bc === 'function') {
+        $2d64bc = $2d64bc.options;
+      }
+    
+        /* template */
+        Object.assign($2d64bc, (function () {
+>>>>>>> membuat components result, card dan share
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+<<<<<<< HEAD
+  return _c("div", [_c("Parent")], 1)
+=======
+  return _c(
+    "div",
+    [
+      _c("Navigation"),
+      _vm._v(" "),
+      _vm.isUpload
+        ? [_c("Upload", { on: { url: _vm.catchUrl } })]
+        : [
+            _c("Result", {
+              attrs: { imageUrl: _vm.imageUrl, apiUrl: _vm.apiUrl }
+            })
+          ]
+    ],
+    2
+  )
+>>>>>>> membuat components result, card dan share
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+<<<<<<< HEAD
+            _scopeId: "data-v-c051a9",
+=======
+            _scopeId: null,
+>>>>>>> membuat components result, card dan share
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+<<<<<<< HEAD
+            api.createRecord('$c051a9', $c051a9);
+          } else {
+            api.reload('$c051a9', $c051a9);
+=======
+            api.createRecord('$2d64bc', $2d64bc);
+          } else {
+            api.reload('$2d64bc', $2d64bc);
+          }
+        }
+
+        
+      }
+    })();
+},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","./result/Result":"src/components/result/Result.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10895,21 +11486,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 var _default = {
   data: function data() {
-    return {};
+    return {
+      imageUrl: ''
+    };
   },
   components: {
     Parent: _Parent.default
-  }
+  },
+  methods: {}
 };
 exports.default = _default;
-        var $c051a9 = exports.default || module.exports;
+        var $9def88 = exports.default || module.exports;
       
-      if (typeof $c051a9 === 'function') {
-        $c051a9 = $c051a9.options;
+      if (typeof $9def88 === 'function') {
+        $9def88 = $9def88.options;
       }
     
         /* template */
-        Object.assign($c051a9, (function () {
+        Object.assign($9def88, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10923,7 +11517,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-c051a9",
+            _scopeId: "data-v-9def88",
             functional: undefined
           };
         })());
@@ -10936,9 +11530,10 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c051a9', $c051a9);
+            api.createRecord('$9def88', $9def88);
           } else {
-            api.reload('$c051a9', $c051a9);
+            api.reload('$9def88', $9def88);
+>>>>>>> membuat components result, card dan share
           }
         }
 
@@ -50831,7 +51426,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44819" + '/');
+>>>>>>> membuat components result, card dan share
 
   ws.onmessage = function (event) {
     checkedAssets = {};
