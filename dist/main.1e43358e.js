@@ -8546,7 +8546,74 @@ if (inBrowser) {
 
 var _default = Vue;
 exports.default = _default;
-},{}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -8835,11 +8902,20 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
-  name: 'Navigation'
+  name: "Navigation"
 };
 exports.default = _default;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fajri
         var $55e767 = exports.default || module.exports;
       
       if (typeof $55e767 === 'function') {
@@ -8848,6 +8924,7 @@ exports.default = _default;
     
         /* template */
         Object.assign($55e767, (function () {
+<<<<<<< HEAD
 =======
         var $d02e75 = exports.default || module.exports;
       
@@ -8858,13 +8935,51 @@ exports.default = _default;
         /* template */
         Object.assign($d02e75, (function () {
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+>>>>>>> fajri
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "b-navbar",
-    [_c("b-navbar-brand", [_vm._v("\n        navbar\n    ")])],
+    {
+      staticStyle: { position: "sticky-top", "z-index": "999" },
+      attrs: { toggleable: "lg", type: "dark", variant: "info" }
+    },
+    [
+      _c("b-navbar-brand", { attrs: { href: "#" } }, [
+        _vm._v("Expression Detection")
+      ]),
+      _vm._v(" "),
+      _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
+      _vm._v(" "),
+      _c(
+        "b-collapse",
+        { attrs: { id: "nav-collapse", "is-nav": "" } },
+        [
+          _c(
+            "b-navbar-nav",
+            { staticClass: "menu" },
+            [
+              _c(
+                "b-nav-item",
+                { staticClass: "text-center", attrs: { href: "#" } },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-nav-item",
+                { staticClass: "text-center", attrs: { href: "#" } },
+                [_vm._v("Upload")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
     1
   )
 }
@@ -8875,7 +8990,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-55e767",
             functional: undefined
           };
         })());
@@ -8889,6 +9004,7 @@ render._withStripped = true
           module.hot.accept();
           if (!module.hot.data) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             api.createRecord('$55e767', $55e767);
           } else {
             api.reload('$55e767', $55e767);
@@ -8897,13 +9013,22 @@ render._withStripped = true
           } else {
             api.reload('$d02e75', $d02e75);
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+            api.createRecord('$55e767', $55e767);
+          } else {
+            api.reload('$55e767', $55e767);
+>>>>>>> fajri
           }
         }
 
         
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
       }
     })();
-},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -10680,18 +10805,24 @@ module.exports.default = axios;
 
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Form.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _axios = _interopRequireDefault(require("axios"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10699,14 +10830,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
+  name: "UploadForm",
   data: function data() {
-    return {};
+    return {
+      file: null,
+      url: null
+    };
   },
-  name: "Upload",
-  methods: {},
+  methods: {
+    onFileChange: function onFileChange(e) {
+      var file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+    removeImage: function removeImage() {
+      this.file = null;
+      this.url = null;
+    }
+  },
   created: function created() {}
 };
 exports.default = _default;
+<<<<<<< HEAD
 <<<<<<< HEAD
         var $e50f8a = exports.default || module.exports;
       
@@ -10726,11 +10870,340 @@ exports.default = _default;
         /* template */
         Object.assign($c884b6, (function () {
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+        var $1ce225 = exports.default || module.exports;
+      
+      if (typeof $1ce225 === 'function') {
+        $1ce225 = $1ce225.options;
+      }
+    
+        /* template */
+        Object.assign($1ce225, (function () {
+>>>>>>> fajri
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    { staticClass: "middle" },
+    [
+      _vm.url
+        ? _c(
+            "div",
+            { staticClass: "d-flex flex-column justify-content-center" },
+            [
+              _c("img", { staticClass: "image", attrs: { src: _vm.url } }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.removeImage()
+                    }
+                  }
+                },
+                [_vm._v("Remove image")]
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("b-form-file", {
+        attrs: {
+          state: Boolean(_vm.file),
+          placeholder: "Choose a file or drop it here...",
+          "drop-placeholder": "Drop file here..."
+        },
+        on: { change: _vm.onFileChange },
+        model: {
+          value: _vm.file,
+          callback: function($$v) {
+            _vm.file = $$v
+          },
+          expression: "file"
+        }
+      }),
+      _vm._v(" "),
+      _vm.file
+        ? _c("b-button", { on: { click: _vm.upload } }, [_vm._v("Upload")])
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-1ce225",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+            api.createRecord('$e50f8a', $e50f8a);
+          } else {
+            api.reload('$e50f8a', $e50f8a);
+=======
+            api.createRecord('$c884b6', $c884b6);
+          } else {
+            api.reload('$c884b6', $c884b6);
+>>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+            api.createRecord('$1ce225', $1ce225);
+          } else {
+            api.reload('$1ce225', $1ce225);
+>>>>>>> fajri
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Carousel.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Form = _interopRequireDefault(require("./Form"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "Carousel",
+  data: function data() {
+    return {};
+  },
+  components: {
+    UploadForm: _Form.default
+  },
+  methods: {},
+  created: function created() {}
+};
+exports.default = _default;
+<<<<<<< HEAD
+<<<<<<< HEAD
+        var $9ecefe = exports.default || module.exports;
+      
+      if (typeof $9ecefe === 'function') {
+        $9ecefe = $9ecefe.options;
+      }
+    
+        /* template */
+        Object.assign($9ecefe, (function () {
+=======
+        var $0953b8 = exports.default || module.exports;
+      
+      if (typeof $0953b8 === 'function') {
+        $0953b8 = $0953b8.options;
+      }
+    
+        /* template */
+        Object.assign($0953b8, (function () {
+>>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+        var $66850e = exports.default || module.exports;
+      
+      if (typeof $66850e === 'function') {
+        $66850e = $66850e.options;
+      }
+    
+        /* template */
+        Object.assign($66850e, (function () {
+>>>>>>> fajri
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-carousel",
+    {
+      staticStyle: { "text-shadow": "1px 1px 2px #333" },
+      attrs: {
+        id: "carousel-1",
+        interval: 3000,
+        fade: "",
+        background: "#ababab",
+        "img-width": "800",
+        "img-height": "100"
+      }
+    },
+    [
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=52" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=54" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=58" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=55" }
+      }),
+      _vm._v(" "),
+      _c("UploadForm")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-66850e",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+            api.createRecord('$9ecefe', $9ecefe);
+          } else {
+            api.reload('$9ecefe', $9ecefe);
+=======
+            api.createRecord('$0953b8', $0953b8);
+          } else {
+            api.reload('$0953b8', $0953b8);
+>>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+            api.createRecord('$66850e', $66850e);
+          } else {
+            api.reload('$66850e', $66850e);
+>>>>>>> fajri
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+<<<<<<< HEAD
+},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+=======
+},{"./Form":"src/components/upload/Form.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+"use strict";
+>>>>>>> fajri
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _Carousel = _interopRequireDefault(require("./Carousel"));
+
+var _name$data$components;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+<<<<<<< HEAD
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+=======
+var _default = (_name$data$components = {
+  name: "Upload",
+  data: function data() {
+    return {};
+  },
+  components: {
+    Carousel: _Carousel.default
+  }
+}, _defineProperty(_name$data$components, "name", "Upload"), _defineProperty(_name$data$components, "methods", {}), _defineProperty(_name$data$components, "created", function created() {}), _name$data$components);
+>>>>>>> fajri
+
+exports.default = _default;
+        var $e50f8a = exports.default || module.exports;
+      
+      if (typeof $e50f8a === 'function') {
+        $e50f8a = $e50f8a.options;
+      }
+    
+        /* template */
+        Object.assign($e50f8a, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("Carousel")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10752,22 +11225,16 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-<<<<<<< HEAD
             api.createRecord('$e50f8a', $e50f8a);
           } else {
             api.reload('$e50f8a', $e50f8a);
-=======
-            api.createRecord('$c884b6', $c884b6);
-          } else {
-            api.reload('$c884b6', $c884b6);
->>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
           }
         }
 
         
       }
     })();
-},{"axios":"node_modules/axios/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","./Carousel":"src/components/upload/Carousel.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10799,7 +11266,6 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-<<<<<<< HEAD
         var $9ecefe = exports.default || module.exports;
       
       if (typeof $9ecefe === 'function') {
@@ -10808,16 +11274,6 @@ exports.default = _default;
     
         /* template */
         Object.assign($9ecefe, (function () {
-=======
-        var $0953b8 = exports.default || module.exports;
-      
-      if (typeof $0953b8 === 'function') {
-        $0953b8 = $0953b8.options;
-      }
-    
-        /* template */
-        Object.assign($0953b8, (function () {
->>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -10827,6 +11283,10 @@ exports.default = _default;
 var staticRenderFns = []
 render._withStripped = true
 
+<<<<<<< HEAD
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
+=======
           return {
             render: render,
             staticRenderFns: staticRenderFns,
@@ -10844,89 +11304,17 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-<<<<<<< HEAD
             api.createRecord('$9ecefe', $9ecefe);
           } else {
             api.reload('$9ecefe', $9ecefe);
-=======
-            api.createRecord('$0953b8', $0953b8);
-          } else {
-            api.reload('$0953b8', $0953b8);
->>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
           }
         }
 
         
       }
     })();
-},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/App.vue":[function(require,module,exports) {
+},{"./general/Nav.vue":"src/components/general/Nav.vue","./upload/Upload":"src/components/upload/Upload.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
+>>>>>>> fajri
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10976,6 +11364,7 @@ var _default = {
 };
 exports.default = _default;
 <<<<<<< HEAD
+<<<<<<< HEAD
         var $c051a9 = exports.default || module.exports;
       
       if (typeof $c051a9 === 'function') {
@@ -10994,6 +11383,16 @@ exports.default = _default;
         /* template */
         Object.assign($232626, (function () {
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+        var $c051a9 = exports.default || module.exports;
+      
+      if (typeof $c051a9 === 'function') {
+        $c051a9 = $c051a9.options;
+      }
+    
+        /* template */
+        Object.assign($c051a9, (function () {
+>>>>>>> fajri
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -11037,10 +11436,14 @@ render._withStripped = true
             staticRenderFns: staticRenderFns,
             _compiled: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
             _scopeId: "data-v-c051a9",
 =======
             _scopeId: "data-v-232626",
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+            _scopeId: "data-v-c051a9",
+>>>>>>> fajri
             functional: undefined
           };
         })());
@@ -11054,6 +11457,7 @@ render._withStripped = true
           module.hot.accept();
           if (!module.hot.data) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             api.createRecord('$c051a9', $c051a9);
           } else {
             api.reload('$c051a9', $c051a9);
@@ -11062,6 +11466,11 @@ render._withStripped = true
           } else {
             api.reload('$232626', $232626);
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+            api.createRecord('$c051a9', $c051a9);
+          } else {
+            api.reload('$c051a9', $c051a9);
+>>>>>>> fajri
           }
         }
 
@@ -50955,10 +51364,14 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
 <<<<<<< HEAD
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
 =======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "40979" + '/');
 >>>>>>> 5f8cd6b93e18c5116d1b6139ab9ca960ac91e40d
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
+>>>>>>> fajri
 
   ws.onmessage = function (event) {
     checkedAssets = {};
