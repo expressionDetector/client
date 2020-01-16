@@ -1,22 +1,22 @@
 <template>
-    <div>
-        <form >
-            <label for="">Coba</label>
-            <input type="text" name="" id="">
-        </form>
-    </div>
+  <div>
+    <Carousel></Carousel>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import Carousel from "./Carousel";
 export default {
-    data(){
-        return {}
-    },
-    name: "Upload",
-    methods:{},
-    created(){
-
-    },
-}
+  name: "Upload",
+  data() {
+    return {};
+  },
+  components: {
+    Carousel
+  },
+  name: "Upload",
+  methods: {},
+  created() {}
+};
 </script>

@@ -8926,7 +8926,10 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "b-navbar",
-    { attrs: { toggleable: "lg", type: "dark", variant: "info" } },
+    {
+      staticStyle: { position: "sticky-top", "z-index": "999" },
+      attrs: { toggleable: "lg", type: "dark", variant: "info" }
+    },
     [
       _c("b-navbar-brand", { attrs: { href: "#" } }, [
         _vm._v("Expression Detection")
@@ -10773,7 +10776,146 @@ module.exports.default = axios;
 
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/components/upload/Form.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "UploadForm",
+  data: function data() {
+    return {
+      file: null,
+      url: null
+    };
+  },
+  methods: {
+    onFileChange: function onFileChange(e) {
+      var file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+    removeImage: function removeImage() {
+      this.file = null;
+      this.url = null;
+    }
+  },
+  created: function created() {}
+};
+exports.default = _default;
+        var $1ce225 = exports.default || module.exports;
+      
+      if (typeof $1ce225 === 'function') {
+        $1ce225 = $1ce225.options;
+      }
+    
+        /* template */
+        Object.assign($1ce225, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "middle" },
+    [
+      _vm.url
+        ? _c(
+            "div",
+            { staticClass: "d-flex flex-column justify-content-center" },
+            [
+              _c("img", { staticClass: "image", attrs: { src: _vm.url } }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.removeImage()
+                    }
+                  }
+                },
+                [_vm._v("Remove image")]
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("b-form-file", {
+        attrs: {
+          state: Boolean(_vm.file),
+          placeholder: "Choose a file or drop it here...",
+          "drop-placeholder": "Drop file here..."
+        },
+        on: { change: _vm.onFileChange },
+        model: {
+          value: _vm.file,
+          callback: function($$v) {
+            _vm.file = $$v
+          },
+          expression: "file"
+        }
+      }),
+      _vm._v(" "),
+      _vm.file
+        ? _c("b-button", { on: { click: _vm.upload } }, [_vm._v("Upload")])
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-1ce225",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$1ce225', $1ce225);
+          } else {
+            api.reload('$1ce225', $1ce225);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Carousel.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10781,7 +10923,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _axios = _interopRequireDefault(require("axios"));
+var _Form = _interopRequireDefault(require("./Form"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10794,14 +10936,151 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
+  name: "Carousel",
   data: function data() {
     return {};
   },
-  name: "Upload",
+  components: {
+    UploadForm: _Form.default
+  },
   methods: {},
   created: function created() {}
 };
+exports.default = _default;
+        var $66850e = exports.default || module.exports;
+      
+      if (typeof $66850e === 'function') {
+        $66850e = $66850e.options;
+      }
+    
+        /* template */
+        Object.assign($66850e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-carousel",
+    {
+      staticStyle: { "text-shadow": "1px 1px 2px #333" },
+      attrs: {
+        id: "carousel-1",
+        interval: 3000,
+        fade: "",
+        background: "#ababab",
+        "img-width": "800",
+        "img-height": "100"
+      }
+    },
+    [
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=52" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=54" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=58" }
+      }),
+      _vm._v(" "),
+      _c("b-carousel-slide", {
+        staticStyle: { height: "100vh !important" },
+        attrs: { "img-src": "https://picsum.photos/800/600/?image=55" }
+      }),
+      _vm._v(" "),
+      _c("UploadForm")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-66850e",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$66850e', $66850e);
+          } else {
+            api.reload('$66850e', $66850e);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./Form":"src/components/upload/Form.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/upload/Upload.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _Carousel = _interopRequireDefault(require("./Carousel"));
+
+var _name$data$components;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _default = (_name$data$components = {
+  name: "Upload",
+  data: function data() {
+    return {};
+  },
+  components: {
+    Carousel: _Carousel.default
+  }
+}, _defineProperty(_name$data$components, "name", "Upload"), _defineProperty(_name$data$components, "methods", {}), _defineProperty(_name$data$components, "created", function created() {}), _name$data$components);
+
 exports.default = _default;
         var $e50f8a = exports.default || module.exports;
       
@@ -10815,22 +11094,9 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [_c("Carousel")], 1)
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("form", [
-        _c("label", { attrs: { for: "" } }, [_vm._v("Coba")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", name: "", id: "" } })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -10859,7 +11125,7 @@ render._withStripped = true
         
       }
     })();
-},{"axios":"node_modules/axios/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
+},{"axios":"node_modules/axios/index.js","./Carousel":"src/components/upload/Carousel.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/Parent.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50890,7 +51156,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40393" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42405" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
