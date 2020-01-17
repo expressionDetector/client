@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info" style="position: sticky-top ; z-index:999">
-    <b-navbar-brand href="#">Expression Detection</b-navbar-brand>
+    <b-navbar-brand href="#" @click='toUpload'>Expression Detection</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="menu">
