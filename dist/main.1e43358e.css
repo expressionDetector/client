@@ -32,6 +32,12 @@
   height: 50vh;
   width: 50vh;
 }
+.fade-enter-active[data-v-7584cf], .fade-leave-active[data-v-7584cf] {
+transition: opacity .5s;
+}
+.fade-enter[data-v-7584cf], .fade-leave-to[data-v-7584cf] /* .fade-leave-active below version 2.1.8 */ {
+opacity: 0;
+}
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -4,8 +4,7 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="menu">
-        <b-nav-item href="#" class="text-center">Home</b-nav-item>
-        <b-nav-item href="#" class="text-center">Upload</b-nav-item>
+        <b-nav-item href="#" class="text-center" @click='toUpload'>Upload</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -13,7 +12,12 @@
 
 <script>
 export default {
-  name: "Navigation"
+  name: "Navigation",
+  methods: {
+    toUpload(){
+      this.$emit('toUpload')
+    }
+  }
 };
 </script>
 

@@ -8907,9 +8907,13 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
-  name: "Navigation"
+  name: "Navigation",
+  methods: {
+    toUpload: function toUpload() {
+      this.$emit('toUpload');
+    }
+  }
 };
 exports.default = _default;
         var $3576e1 = exports.default || module.exports;
@@ -8947,13 +8951,11 @@ exports.default = _default;
             [
               _c(
                 "b-nav-item",
-                { staticClass: "text-center", attrs: { href: "#" } },
-                [_vm._v("Home")]
-              ),
-              _vm._v(" "),
-              _c(
-                "b-nav-item",
-                { staticClass: "text-center", attrs: { href: "#" } },
+                {
+                  staticClass: "text-center",
+                  attrs: { href: "#" },
+                  on: { click: _vm.toUpload }
+                },
                 [_vm._v("Upload")]
               )
             ],
@@ -11274,6 +11276,14 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {};
@@ -11293,44 +11303,61 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-4" }, [
-      _c("img", {
-        staticClass: "img-thumbnail",
-        staticStyle: { height: "300px !important", width: "100%" },
-        attrs: { src: _vm.imageUrl, alt: "...", height: "400" }
-      })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-8 p-3 " },
-      [
-        _vm._l(_vm.results, function(value, name) {
-          return [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-2" }, [
-                _c("label", [_vm._v(_vm._s(name) + ":")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-sm-10 " },
-                [
-                  _c("b-progress", {
-                    staticClass: "mb-3",
-                    staticStyle: { height: "25px" },
-                    attrs: { value: value, "show-progress": "" }
-                  })
-                ],
-                1
-              )
-            ])
-          ]
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-4" }, [
+        _c("img", {
+          staticClass: "img-thumbnail",
+          staticStyle: { height: "300px !important", width: "100%" },
+          attrs: { src: _vm.imageUrl, alt: "...", height: "400" }
         })
-      ],
-      2
-    )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-8 p-3 " },
+        [
+          !_vm.results.Joy
+            ? _c("div", [
+                _c(
+                  "div",
+                  { staticClass: "d-flex justify-content-center mb-3" },
+                  [
+                    _c("b-spinner", {
+                      attrs: { label: "Loading...", variant: "primary" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.results, function(value, name) {
+            return [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-2" }, [
+                  _c("label", [_vm._v(_vm._s(name) + ":")])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-10 " },
+                  [
+                    _c("b-progress", {
+                      staticClass: "mb-3",
+                      staticStyle: { height: "25px" },
+                      attrs: { value: value, "show-progress": "" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -11340,7 +11367,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-7584cf",
             functional: undefined
           };
         })());
@@ -11360,6 +11387,10 @@ render._withStripped = true
         }
 
         
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
       }
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/components/result/Result.vue":[function(require,module,exports) {
@@ -11570,6 +11601,10 @@ var _default = {
     Result: _Result.default
   },
   methods: {
+    toUpload: function toUpload() {
+      this.isUpload = true;
+      this.imageUrl = null;
+    },
     catchUrl: function catchUrl(payload) {
       this.isUpload = false;
       this.imageUrl = payload;
@@ -11593,7 +11628,7 @@ exports.default = _default;
   return _c(
     "div",
     [
-      _c("Navigation"),
+      _c("Navigation", { on: { toUpload: _vm.toUpload } }),
       _vm._v(" "),
       _vm.isUpload
         ? [_c("Upload", { on: { url: _vm.catchUrl } })]
@@ -51594,7 +51629,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32817" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

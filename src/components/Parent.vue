@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navigation />
+        <Navigation @toUpload='toUpload' />
         <template v-if="isUpload">
             <Upload @url='catchUrl' />
         </template>
@@ -28,6 +28,10 @@
             Result
         },
         methods: {
+            toUpload(){
+                this.isUpload = true
+                this.imageUrl = null
+            },
             catchUrl(payload){
                 this.isUpload = false
                 this.imageUrl = payload
