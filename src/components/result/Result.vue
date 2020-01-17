@@ -1,9 +1,8 @@
 <template>
     <div>
         <div class="container mt-5">
-            <Card :results = "results" :imageUrl= "imageUrl" @share='share' />
+            <Card :results = "results" :imageUrl= "imageUrl" @share='share' :status='status' :message='message'/>
         </div>
-        <Share :status='status' :message='message' :url='imageUrl' @share='share' />
     </div>
 </template>
 <script>
