@@ -19,6 +19,9 @@ export default {
         Parent
     },
     methods: {
+<<<<<<< HEAD
+      
+=======
       share(){
         axios({
           method: 'POST',
@@ -34,6 +37,7 @@ export default {
           console.log(err)
         })
       }
+>>>>>>> development
     }
 }
 </script>

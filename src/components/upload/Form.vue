@@ -1,21 +1,39 @@
 <template>
   <div class="middle">
-    <div class="d-flex flex-column justify-content-center" v-if="url">
-      <img :src="url" class="image" />
-      <button @click="removeImage()">Remove image</button>
+    <div class="d-flex flex-column justify-content-center container" v-if="url">
+      <div class="justify-content-center">
+        <img :src="url" class="image" />
+      </div>
+
+      <b-button
+        @click="removeImage()"
+        class="my-5 w-25 font-weight-bold"
+        style="margin: 0 auto; font-size: large;"
+      >Remove image</b-button>
     </div>
+
     <b-form-file
       v-model="file"
       @change="onFileChange"
       :state="Boolean(file)"
       placeholder="Choose a file or drop it here..."
       drop-placeholder="Drop file here..."
+      action="/upload-single"
+      method="post"
+      enctype="multipart/form-data"
     ></b-form-file>
-    <b-button v-if="file" @click="upload">Upload</b-button>
+
+    <b-button
+      class="mt-5 font-weight-bold"
+      style="font-size: large;"
+      v-if="file"
+      @click="upload"
+    >Upload</b-button>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "UploadForm",
   data() {
@@ -32,6 +50,22 @@ export default {
     removeImage: function() {
       this.file = null;
       this.url = null;
+    },
+    upload() {
+      const fd = new FormData();
+      fd.append("file", this.file);
+      console.log(fd);
+      axios({
+        method: "post",
+        url: "http://35.224.51.213:3000/image/singleupload",
+        data: fd
+      })
+        .then(({ data }) => {
+          this.$emit("catchUrl", data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   created() {}
@@ -53,7 +87,7 @@ export default {
   z-index: 999;
 }
 .image {
-  height: 10vh;
-  width: 10vh;
+  height: 50vh;
+  width: 50vh;
 }
 </style>
