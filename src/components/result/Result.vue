@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="container mt-3">
-            <Card :results = "results" :imageUrl= "imageUrl"  />
+        <div class="container mt-5">
+            <Card :results = "results" :imageUrl= "imageUrl" @share='share' />
         </div>
         <Share :status='status' :message='message' :url='imageUrl' @share='share' />
     </div>
