@@ -3,7 +3,7 @@
         <div class="container mt-3">
             <Card :results = "results" :imageUrl= "imageUrl"  />
         </div>
-        <Share @share='share' />
+        <Share :status='status' :message='message' :url='imageUrl' @share='share' />
     </div>
 </template>
 <script>
@@ -13,7 +13,9 @@ import Card from './Card'
 export default {
     data(){
         return{
-            results: {}
+            results: {},
+            status: '',
+            message: ''
         }
     },
     components: {
@@ -23,6 +25,7 @@ export default {
     props: ['imageUrl', 'apiUrl'],
     methods: {
         share(){
+            this.status = 'loading'
             axios({
                 method: 'POST',
                 url: 'http://localhost:3000/share',
@@ -31,11 +34,11 @@ export default {
                 }
             })
             .then(({data}) => {
-                console.log(data)
-                console.log(`Success`)
+                this.status = 'success'
             })
             .catch((err) => {
-                console.log(err)
+                this.status = 'failed'
+                this.message = err.response.status + ' ' + err.response.data.message
             })
         },
         detectImage(url){
