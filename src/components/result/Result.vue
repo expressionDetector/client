@@ -27,13 +27,14 @@ export default {
             this.status = 'loading'
             axios({
                 method: 'POST',
-                url: 'http://localhost:3000/share',
+                url: 'http://35.224.51.213:3000/share',
                 data: {
                     imageUrl: this.imageUrl
                 }
             })
             .then(({data}) => {
                 this.status = 'success'
+                window.open('https://www.pinterest.com/carlhermawan/expression-detector/', '_blank')
             })
             .catch((err) => {
                 this.status = 'failed'

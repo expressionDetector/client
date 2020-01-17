@@ -19,7 +19,7 @@
             return {
                 isUpload: true,
                 imageUrl: '',
-                apiUrl: 'http://localhost:3000'
+                apiUrl: 'http://35.224.51.213:3000'
             }
         },
         components: {
